@@ -6,8 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, Star, ExternalLink, Code, Filter } from "lucide-react"
-import Link from "next/link"
+import { Search, Star, ExternalLink, Code, Filter, Globe, Database, Zap, MessageSquare, Image, Shield, BarChart3, Music } from "lucide-react"
 
 const apis = [
   {
@@ -19,7 +18,8 @@ const apis = [
     rating: 4.9,
     reviews: 1250,
     pricing: "Freemium",
-    documentation: "/apis/stripe-payments",
+    documentation: "https://stripe.com/docs/api",
+    tryItUrl: "https://dashboard.stripe.com/register",
     features: ["Credit Cards", "Subscriptions", "Webhooks", "Mobile SDKs"],
     popularity: "high",
   },
@@ -32,7 +32,8 @@ const apis = [
     rating: 4.8,
     reviews: 2100,
     pricing: "Pay-per-use",
-    documentation: "/apis/google-maps",
+    documentation: "https://developers.google.com/maps/documentation",
+    tryItUrl: "https://console.cloud.google.com/apis/library/maps-backend.googleapis.com",
     features: ["Maps", "Geocoding", "Directions", "Places"],
     popularity: "high",
   },
@@ -44,7 +45,8 @@ const apis = [
     rating: 4.7,
     reviews: 890,
     pricing: "Pay-per-token",
-    documentation: "/apis/openai-gpt",
+    documentation: "https://platform.openai.com/docs",
+    tryItUrl: "https://platform.openai.com/playground",
     features: ["Text Generation", "Chat", "Embeddings", "Fine-tuning"],
     popularity: "high",
   },
@@ -56,7 +58,8 @@ const apis = [
     rating: 4.6,
     reviews: 1580,
     pricing: "Pay-per-message",
-    documentation: "/apis/twilio-sms",
+    documentation: "https://www.twilio.com/docs/sms",
+    tryItUrl: "https://console.twilio.com/",
     features: ["SMS", "MMS", "WhatsApp", "Voice"],
     popularity: "medium",
   },
@@ -68,7 +71,8 @@ const apis = [
     rating: 4.5,
     reviews: 3200,
     pricing: "Pay-per-use",
-    documentation: "/apis/aws-s3",
+    documentation: "https://docs.aws.amazon.com/s3/",
+    tryItUrl: "https://aws.amazon.com/console/",
     features: ["Object Storage", "CDN", "Backup", "Static Hosting"],
     popularity: "high",
   },
@@ -80,8 +84,139 @@ const apis = [
     rating: 4.4,
     reviews: 980,
     pricing: "Freemium",
-    documentation: "/apis/sendgrid-email",
+    documentation: "https://docs.sendgrid.com/",
+    tryItUrl: "https://app.sendgrid.com/",
     features: ["Transactional Email", "Templates", "Analytics", "SMTP"],
+    popularity: "medium",
+  },
+  {
+    id: "firebase-firestore",
+    name: "Firebase Firestore API",
+    description: "NoSQL document database built for automatic scaling, high performance, and ease of application development.",
+    category: "Database",
+    rating: 4.6,
+    reviews: 1840,
+    pricing: "Freemium",
+    documentation: "https://firebase.google.com/docs/firestore",
+    tryItUrl: "https://console.firebase.google.com/",
+    features: ["Real-time Database", "Offline Support", "Scalable", "Security Rules"],
+    popularity: "high",
+  },
+  {
+    id: "github-api",
+    name: "GitHub REST API",
+    description: "Integrate with GitHub repositories, issues, pull requests, and user data for powerful development workflows.",
+    category: "Developer Tools",
+    rating: 4.5,
+    reviews: 2850,
+    pricing: "Free",
+    documentation: "https://docs.github.com/en/rest",
+    tryItUrl: "https://github.com/settings/tokens",
+    features: ["Repositories", "Issues", "Pull Requests", "Actions"],
+    popularity: "high",
+  },
+  {
+    id: "unsplash-api",
+    name: "Unsplash API",
+    description: "Access millions of high-quality photos from Unsplash for your applications with powerful search capabilities.",
+    category: "Media & Images",
+    rating: 4.7,
+    reviews: 650,
+    pricing: "Free",
+    documentation: "https://unsplash.com/documentation",
+    tryItUrl: "https://unsplash.com/developers",
+    features: ["Photo Search", "Collections", "User Data", "Statistics"],
+    popularity: "medium",
+  },
+  {
+    id: "auth0-api",
+    name: "Auth0 Authentication API",
+    description: "Universal authentication & authorization platform for web, mobile and legacy applications.",
+    category: "Authentication",
+    rating: 4.6,
+    reviews: 1320,
+    pricing: "Freemium",
+    documentation: "https://auth0.com/docs/api",
+    tryItUrl: "https://manage.auth0.com/",
+    features: ["SSO", "Multi-factor Auth", "Social Login", "User Management"],
+    popularity: "high",
+  },
+  {
+    id: "slack-api",
+    name: "Slack Web API",
+    description: "Build custom Slack apps, bots, and integrations to enhance team communication and productivity.",
+    category: "Communication",
+    rating: 4.4,
+    reviews: 1150,
+    pricing: "Free",
+    documentation: "https://api.slack.com/web",
+    tryItUrl: "https://api.slack.com/apps",
+    features: ["Messaging", "Channels", "Bots", "Workflows"],
+    popularity: "medium",
+  },
+  {
+    id: "weather-api",
+    name: "OpenWeatherMap API",
+    description: "Get current weather, forecasts, and historical weather data for any location worldwide.",
+    category: "Weather & Environment",
+    rating: 4.3,
+    reviews: 890,
+    pricing: "Freemium",
+    documentation: "https://openweathermap.org/api",
+    tryItUrl: "https://openweathermap.org/appid",
+    features: ["Current Weather", "Forecasts", "Historical Data", "Weather Maps"],
+    popularity: "medium",
+  },
+  {
+    id: "mongodb-atlas",
+    name: "MongoDB Atlas API",
+    description: "Manage MongoDB Atlas clusters, databases, and collections programmatically with comprehensive API access.",
+    category: "Database",
+    rating: 4.5,
+    reviews: 1650,
+    pricing: "Freemium",
+    documentation: "https://www.mongodb.com/docs/atlas/api/",
+    tryItUrl: "https://cloud.mongodb.com/",
+    features: ["Cluster Management", "Database Operations", "Monitoring", "Backup"],
+    popularity: "high",
+  },
+  {
+    id: "cloudinary-api",
+    name: "Cloudinary API",
+    description: "Cloud-based image and video management with automatic optimization, transformation, and delivery.",
+    category: "Media & Images",
+    rating: 4.8,
+    reviews: 720,
+    pricing: "Freemium",
+    documentation: "https://cloudinary.com/documentation",
+    tryItUrl: "https://cloudinary.com/console",
+    features: ["Image Optimization", "Video Processing", "AI Transformation", "CDN"],
+    popularity: "medium",
+  },
+  {
+    id: "spotify-api",
+    name: "Spotify Web API",
+    description: "Access Spotify's music catalog, user playlists, and playback controls to build music applications.",
+    category: "Entertainment",
+    rating: 4.6,
+    reviews: 1280,
+    pricing: "Free",
+    documentation: "https://developer.spotify.com/documentation/web-api/",
+    tryItUrl: "https://developer.spotify.com/dashboard",
+    features: ["Music Catalog", "Playlists", "User Data", "Playback Control"],
+    popularity: "medium",
+  },
+  {
+    id: "vercel-api",
+    name: "Vercel API",
+    description: "Deploy and manage your applications on Vercel's edge network with programmatic control.",
+    category: "Cloud Services",
+    rating: 4.7,
+    reviews: 940,
+    pricing: "Freemium",
+    documentation: "https://vercel.com/docs/rest-api",
+    tryItUrl: "https://vercel.com/dashboard",
+    features: ["Deployments", "Domains", "Analytics", "Edge Functions"],
     popularity: "medium",
   },
 ]
@@ -93,8 +228,12 @@ const categories = [
   "AI & Machine Learning",
   "Communication",
   "Cloud Services",
-  "Data & Analytics",
-  "Social Media",
+  "Database",
+  "Developer Tools",
+  "Media & Images",
+  "Authentication",
+  "Weather & Environment",
+  "Entertainment",
 ]
 
 const sortOptions = [
@@ -155,12 +294,20 @@ export default function APIsPage() {
     handleSearch()
   })
 
+  const handleDocumentationClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  const handleTryItClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">API Directory</h1>
         <p className="text-lg text-gray-600 max-w-3xl">
-          Discover and integrate powerful APIs into your projects. Browse our curated collection of APIs with
+          Discover and integrate powerful APIs into your projects. Browse our curated collection of {apis.length} APIs with
           comprehensive documentation and code examples.
         </p>
       </div>
@@ -258,13 +405,20 @@ export default function APIsPage() {
               </div>
 
               <div className="flex space-x-2">
-                <Link href={api.documentation} className="flex-1">
-                  <Button variant="outline" size="sm" className="w-full bg-transparent">
-                    <Code className="h-4 w-4 mr-1" />
-                    Docs
-                  </Button>
-                </Link>
-                <Button size="sm" className="flex-1">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex-1 bg-transparent"
+                  onClick={() => handleDocumentationClick(api.documentation)}
+                >
+                  <Code className="h-4 w-4 mr-1" />
+                  Docs
+                </Button>
+                <Button 
+                  size="sm" 
+                  className="flex-1"
+                  onClick={() => handleTryItClick(api.tryItUrl)}
+                >
                   <ExternalLink className="h-4 w-4 mr-1" />
                   Try It
                 </Button>

@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description:
     "Discover, learn, and integrate APIs with comprehensive documentation, tutorials, and developer resources.",
   keywords: "API, documentation, tutorials, integration, developers, REST, GraphQL",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
